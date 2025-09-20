@@ -33,7 +33,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: nipunmlops.azurecr.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_4D59DDB13EA24467AAB1A62B3535E6D4 }}/mltest:${{ github.sha }}
+          tags: nipunmlops.azurecr.io/mltest:latest
           file: ./Dockerfile
 
   deploy:
@@ -60,4 +60,5 @@ jobs:
           app-name: 'nipunmlopsapp'
           slot-name: 'Production'
           images: 'nipunmlops.azurecr.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_4D59DDB13EA24467AAB1A62B3535E6D4 }}/mltest:${{ github.sha }}'
+
           
