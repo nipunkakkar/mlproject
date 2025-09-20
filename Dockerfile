@@ -1,8 +1,13 @@
-FROM python:3.8-slim-buster
+FROM python:3.12-slim
+
 WORKDIR /app
 COPY . /app
 
-RUN apt update -y && apt install awscli -y
+# Install system deps if your requirements need them
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && apt-get install ffmpeg libsm6 libxext6 unzip -y && pip install -r requirements.txt
-CMD ["python3", "app.py"]
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD ["python", "app.py"]

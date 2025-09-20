@@ -4,8 +4,8 @@
 
 ## Run from terminal:
 
-docker build -t testdockernipun.azurecr.io/mltest:latest .
+docker build -t nipunmlops.azurecr.io/mltest:latest .
 
-docker login testdockernipun.azurecr.io
+docker login nipunmlops.azurecr.io
 
-docker push testdockernipun.azurecr.io/mltest:latest
+docker push nipunmlops.azurecr.io/mltest:latest
